@@ -19,6 +19,11 @@ jobs:
     steps:
     - name: Check out repo
       uses: actions/checkout@main
+    - name: Install Azure CLI
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      if: runner.os == 'Linux' # For Linux runners
+
     - name: Install az ml extension
       run: az extension add -n ml -y
     - name: 'Az Cli login'
