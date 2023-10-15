@@ -34,9 +34,12 @@ def get_csvs_df(path):
 
 # Our new function
 def split_data(df, test_size=0.2):
+    # split data into train and test sets
     X = df.drop("Diabetic", axis=1)
     y = df["Diabetic"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
+    X_train, X_test, y_train, y_test = train_test_split(
+        #new line
+        X, y, test_size=test_size)
     return X_train, X_test, y_train, y_test
 
 
@@ -59,6 +62,7 @@ def parse_args():
 
     # Return args
     return args
+
 
 if __name__ == "__main__":
     args = parse_args()
