@@ -5,7 +5,7 @@ import pytest
 
 def test_csvs_no_files():
     with pytest.raises(RuntimeError) as error:
-        get_csvs_df("./production/data")
+        get_csvs_df("/production/data")
     assert error.match("No CSV files found in provided data")
 
 
