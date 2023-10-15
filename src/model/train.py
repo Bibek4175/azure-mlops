@@ -55,7 +55,7 @@ def parse_args():
  
     # return args 
     return args 
-LogisticRegression(C=1 / reg_rate, solver="liblinear").fit(X_train, y_train>)
+LogisticRegression(C=1 / reg_rate, solver="liblinear").fit(X_train, y_train)
  
 def parse_args(): 
     # setup arg parser 
