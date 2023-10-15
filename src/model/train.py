@@ -28,7 +28,7 @@ def get_csvs_df(path):
         raise RuntimeError(f"Cannot use a non-existent path provided: {path}")
     csv_files = glob.glob(f"{path}/*.csv")
     if not csv_files:
-        raise RuntimeError(f"No CSV files found in the provided data path: {path}")
+        raise RuntimeError(f"No CSV files found in the data path: {path}")
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
@@ -38,7 +38,7 @@ def split_data(df, test_size=0.2):
     X = df.drop("Diabetic", axis=1)
     y = df["Diabetic"]
     X_train, X_test, y_train, y_test = train_test_split(
-        #new line
+    #new line
         X, y, test_size=test_size)
     return X_train, X_test, y_train, y_test
 
