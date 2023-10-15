@@ -6,13 +6,13 @@ import pytest
 def test_csvs_no_files():
     with pytest.raises(RuntimeError) as error:
         get_csvs_df("./")
-    assert error.match("No CSV files found in provided data")
+    assert error.match("No CSV files found in the data path: ./")
 
 
 def test_csvs_no_files_invalid_path():
     with pytest.raises(RuntimeError) as error:
         get_csvs_df("/invalid/path/does/not/exist/")
-    assert error.match("Cannot use non-existent path provided")
+    assert error.match("Cannot use a non-existent path provided: /invalid/path/does/not/exist/")
 
 
 def test_csvs_creates_dataframe():
