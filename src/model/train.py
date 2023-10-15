@@ -28,7 +28,7 @@ def get_csvs_df(path):
         raise RuntimeError(f"Cannot use non-existent path provided: {path}")
     csv_files = glob.glob(f"{path}/*.csv")
     if not csv_files:
-        raise RuntimeError(f"No CSV files found in provided data path: {path}"
+        raise RuntimeError(f"No CSV files found in provided data path: {path}")
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 # our new function
@@ -49,6 +49,21 @@ def parse_args():
     # add arguments 
     parser.add_argument("--training_data", dest="training_data", type=str) 
     parser.add_argument("--reg_rate", dest="reg_rate", type=float, default=0.01) 
+ 
+    # parse args 
+    args = parser.parse_args() 
+ 
+    # return args 
+    return args 
+LogisticRegression(C=1 / reg_rate, solver="liblinear").fit(X_train, y_train>
+ 
+def parse_args(): 
+    # setup arg parser 
+    parser = argparse.ArgumentParser() 
+ 
+    # add arguments 
+    parser.add_argument("--training_data", dest="training_data", type=str) 
+    parser.add_argument("--reg_rate", dest="reg_rate", type=float, default=0.01>
  
     # parse args 
     args = parser.parse_args() 
