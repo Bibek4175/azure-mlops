@@ -38,8 +38,7 @@ def split_data(df, test_size=0.2):
     X = df.drop("Diabetic", axis=1)
     y = df["Diabetic"]
     X_train, X_test, y_train, y_test = train_test_split(
-    #new line
-        X, y, test_size=test_size)
+    X, y, test_size=test_size)
     return X_train, X_test, y_train, y_test
 
 
@@ -54,8 +53,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # Add arguments
-    parser.add_argument("--training_data", dest="training_data", type=str)
-    parser.add_argument("--reg_rate", dest="reg_rate", type=float, default=0.01)
+    parser.add_argument("training_data", dest="training_data", type=str)
+    parser.add_argument("reg_rate", dest="reg_rate", type=float, default=0.01)
 
     # Parse args
     args = parser.parse_args()
