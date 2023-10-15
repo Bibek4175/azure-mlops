@@ -10,6 +10,7 @@ from mlflow.sklearn import autolog
 
 # Define functions
 
+
 def main(args):
     # Enable autologging
     autolog()
@@ -21,6 +22,7 @@ def main(args):
     X_train, X_test, y_train, y_test = split_data(df)
     train_model(args.reg_rate, X_train, X_test, y_train, y_test)
 
+
 def get_csvs_df(path):
     if not os.path.exists(path):
         raise RuntimeError(f"Cannot use a non-existent path provided: {path}")
@@ -29,6 +31,7 @@ def get_csvs_df(path):
         raise RuntimeError(f"No CSV files found in the provided data path: {path}")
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
+
 # Our new function
 def split_data(df, test_size=0.2):
     X = df.drop("Diabetic", axis=1)
@@ -36,10 +39,12 @@ def split_data(df, test_size=0.2):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
     return X_train, X_test, y_train, y_test
 
+
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # Train model
     model = LogisticRegression(C=1 / reg_rate, solver="liblinear")
     model.fit(X_train, y_train)
+
 
 def parse_args():
     # Setup arg parser
